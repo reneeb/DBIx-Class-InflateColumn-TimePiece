@@ -8,7 +8,7 @@ DBIx::Class::InflateColumn::TimePiece - Auto-create Time::Piece objects from int
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 

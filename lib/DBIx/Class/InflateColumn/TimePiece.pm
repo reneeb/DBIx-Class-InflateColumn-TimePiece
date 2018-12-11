@@ -10,7 +10,7 @@ use parent 'DBIx::Class';
 
 use Time::Piece;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub register_column {
     my ($self, $column, $info, @rest) = @_;
