@@ -6,6 +6,7 @@ use warnings;
 use File::Basename;
 use Test::More;
 use Scalar::Util qw/blessed/;
+use Time::Piece;
 
 use lib dirname(__FILE__) . '/lib';
 use TimePieceDB;
@@ -28,39 +29,24 @@ my @tests = (
 
 my $default = sub { $_[0]->ymd };
 
-my $cnt = 0;
 for my $test ( @tests ) {
     my ($input, $output, $code) = @{ $test };
 
-    my %opt;
-
-    if ( $cnt % 2 ) {
-        $opt{last_login} = time;
-    }
+    my $dt = localtime $input;
 
     my $testuser = $rs->create({
         user_name    => 'hugo',
         city         => 'anywhere',
-        user_created => $input,
-        %opt,
+        user_created => $dt,
     });
 
     my $sub = $code // $default;
 
-    ok blessed $testuser, "$cnt - testuser is an object";
-    ok !blessed $testuser->id, "$cnt - id column is not an object";
-    ok !blessed $testuser->user_name, "$cnt - user_name is not an object";
-    ok !blessed $testuser->city, "$cnt - city is not an object";
-    ok blessed $testuser->user_created, "$cnt - user_created IS an object";
-
-    if ( %opt ) {
-        ok blessed $testuser->last_login, "$cnt - last_login IS an object";
-        like $testuser->last_login->ymd, qr/\A\d{4}-\d{2}-\d{2}\z/, "$cnt - last_login returns a date";
-    }
-    else {
-        is $testuser->last_login, undef, "$cnt - last_login is undef";
-    }
-
+    ok blessed $testuser, "testuser is an object";
+    ok !blessed $testuser->id, "id column is not an object";
+    ok !blessed $testuser->user_name, "user_name is not an object";
+    ok !blessed $testuser->city, "city is not an object";
+    ok blessed $testuser->user_created, "user_created IS an object";
     is $sub->( $testuser->user_created ), $output, "In: $input // Out: $output";
 }
 

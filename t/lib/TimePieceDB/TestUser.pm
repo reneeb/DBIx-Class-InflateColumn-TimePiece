@@ -18,6 +18,18 @@ __PACKAGE__->add_columns(
         data_type => 'varchar',
         size      => 45,
     },
+    user_nick => {
+        inflate_time_piece => 1,
+        is_nullable        => 1,
+    },
+    postcode => {
+        is_nullable => 1,
+    },
+    last_login => {
+        data_type          => 'int',
+        inflate_time_piece => 1,
+        is_nullable        => 1,
+    },
     city => {
         data_type          => 'varchar',
         size               => 45,

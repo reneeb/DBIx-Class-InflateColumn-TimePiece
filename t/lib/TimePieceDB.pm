@@ -23,6 +23,8 @@ sub init_schema {
         'PRAGMA temp_store = MEMORY',
     ]);
 
+    $schema->deploy;
+
     return $schema;
 }
 

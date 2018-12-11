@@ -1,7 +1,6 @@
 package DBIx::Class::InflateColumn::TimePiece;
 
 # ABSTRACT: Auto-create Time::Piece objects from integer columns
-
 use v5.10;
 
 use strict;
@@ -11,15 +10,17 @@ use parent 'DBIx::Class';
 
 use Time::Piece;
 
+our $VERSION = '0.01';
+
 sub register_column {
     my ($self, $column, $info, @rest) = @_;
 
     $self->next::method( $column, $info, @rest );
 
-    my $data_type = $info->{data_type};
+    my $data_type  = $info->{data_type}      || '';
+    my $is_integer = $data_type eq 'integer' || $data_type eq 'int';
 
-    return if $info->{inflate_time_piece} && !$data_type;
-    return if $data_type ne 'integer' && $data_type ne 'int';
+    return if !$info->{inflate_time_piece} || !$is_integer;
 
     $self->inflate_column(
         $column => {
