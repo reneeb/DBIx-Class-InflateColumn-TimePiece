@@ -37,6 +37,8 @@ sub register_column {
 
 1;
 
+=for Pod::Coverage register_column
+
 =head1 SYNOPSIS
 
     package Event;
