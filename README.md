@@ -1,6 +1,6 @@
 [![Kwalitee status](https://cpants.cpanauthors.org/dist/DBIx-Class-InflateColumn-TimePiece.png)](https://cpants.cpanauthors.org/dist/DBIx-Class-InflateColumn-TimePiece)
 [![GitHub issues](https://img.shields.io/github/issues/reneeb/DBIx-Class-InflateColumn-TimePiece.svg)](https://github.com/reneeb/DBIx-Class-InflateColumn-TimePiece/issues)
-[![CPAN Cover Status](https://cpancoverbadge.perl-services.de/DBIx-Class-InflateColumn-TimePiece-0.02)](https://cpancoverbadge.perl-services.de/DBIx-Class-InflateColumn-TimePiece-0.02)
+[![CPAN Cover Status](https://cpancoverbadge.perl-services.de/DBIx-Class-InflateColumn-TimePiece-0.03)](https://cpancoverbadge.perl-services.de/DBIx-Class-InflateColumn-TimePiece-0.03)
 [![Cpan license](https://img.shields.io/cpan/l/DBIx-Class-InflateColumn-TimePiece.svg)](https://metacpan.org/release/DBIx-Class-InflateColumn-TimePiece)
 
 # NAME
@@ -9,7 +9,7 @@ DBIx::Class::InflateColumn::TimePiece - Auto-create Time::Piece objects from int
 
 # VERSION
 
-version 0.02
+version 0.03
 
 # SYNOPSIS
 
