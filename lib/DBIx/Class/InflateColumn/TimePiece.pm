@@ -1,16 +1,17 @@
 package DBIx::Class::InflateColumn::TimePiece;
 
 # ABSTRACT: Auto-create Time::Piece objects from integer (number of seconds since epoch) columns
+
 use v5.10;
 
 use strict;
 use warnings;
 
+# VERSION
+
 use parent 'DBIx::Class';
 
 use Time::Piece;
-
-our $VERSION = '0.02';
 
 sub register_column {
     my ($self, $column, $info, @rest) = @_;
